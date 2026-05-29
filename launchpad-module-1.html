@@ -6,6 +6,7 @@
 <title>Launchpad Day 1</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -14,62 +15,63 @@
 
 body{
   font-family:'Segoe UI',sans-serif;
-  background:#eef2f7;
+  background:#edf2f7;
   color:#111827;
 }
 
-/* TOP BAR */
+/* TOP HEADER */
 .topbar{
   background:linear-gradient(135deg,#0f172a,#1e293b);
+  padding:18px 22px;
   color:#fff;
-  padding:18px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
-  gap:10px;
+  gap:12px;
 }
 
 .brand{
-  font-size:22px;
+  font-size:24px;
   font-weight:700;
 }
 
 .batch{
   background:rgba(255,255,255,0.12);
-  padding:8px 14px;
+  padding:9px 14px;
   border-radius:999px;
   font-size:14px;
+  font-weight:600;
 }
 
-/* LIVE STATUS */
-.live-strip{
+/* STATUS BAR */
+.status-bar{
   max-width:1100px;
   margin:18px auto 0;
   background:#fff;
+  border-radius:16px;
   border:1px solid #e5e7eb;
-  border-radius:14px;
-  padding:14px 18px;
+  padding:15px 18px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
-  gap:10px;
-  box-shadow:0 4px 14px rgba(0,0,0,0.04);
+  gap:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.05);
 }
 
-.live-left{
+.live-wrap{
   display:flex;
   align-items:center;
   gap:10px;
-  font-weight:600;
+  font-weight:700;
 }
 
 .dot{
   width:10px;
   height:10px;
-  background:#ef4444;
   border-radius:50%;
+  background:#ef4444;
   animation:blink 1s infinite;
 }
 
@@ -79,10 +81,10 @@ body{
   100%{opacity:1;}
 }
 
-.viewer-box{
+.viewer{
   font-size:14px;
-  font-weight:600;
   color:#374151;
+  font-weight:700;
 }
 
 /* MAIN */
@@ -92,20 +94,21 @@ body{
   padding:22px;
 }
 
-/* PROGRESS */
-.progress-card{
+/* ACCESS BOX */
+.access-box{
   background:#fff;
   border-radius:18px;
-  padding:20px;
+  padding:22px;
   margin-bottom:20px;
   box-shadow:0 8px 24px rgba(0,0,0,0.05);
 }
 
-.progress-top{
+.access-top{
   display:flex;
   justify-content:space-between;
   margin-bottom:12px;
-  font-weight:600;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .progress-bar{
@@ -122,7 +125,7 @@ body{
   background:linear-gradient(135deg,#3b82f6,#2563eb);
 }
 
-/* VIDEO CARD */
+/* VIDEO */
 .video-card{
   background:#000;
   border-radius:22px;
@@ -146,31 +149,31 @@ body{
 
 /* STATS */
 .stats{
+  margin-top:20px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:14px;
-  margin-top:20px;
 }
 
 .stat{
   background:#fff;
-  padding:18px;
   border-radius:16px;
+  padding:18px;
   box-shadow:0 6px 18px rgba(0,0,0,0.05);
 }
 
-.stat-title{
-  font-size:13px;
+.stat-label{
   color:#6b7280;
+  font-size:13px;
   margin-bottom:8px;
 }
 
 .stat-value{
-  font-size:20px;
+  font-size:21px;
   font-weight:700;
 }
 
-/* INFO BOX */
+/* INFO */
 .info-box{
   margin-top:22px;
   background:#fff;
@@ -194,19 +197,19 @@ body{
   margin-top:18px;
   background:#eff6ff;
   border:1px solid #bfdbfe;
-  border-radius:14px;
-  padding:18px;
-  text-align:center;
-  font-weight:600;
   color:#1e40af;
+  padding:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:700;
 }
 
 /* ACTIVITY */
 .activity{
-  margin-top:20px;
+  margin-top:22px;
   background:#fff;
   border-radius:18px;
-  padding:20px;
+  padding:22px;
   box-shadow:0 10px 26px rgba(0,0,0,0.05);
 }
 
@@ -217,7 +220,6 @@ body{
 .activity-item{
   padding:12px 0;
   border-bottom:1px solid #e5e7eb;
-  font-size:15px;
 }
 
 .activity-item:last-child{
@@ -229,47 +231,107 @@ body{
   margin-top:24px;
   width:100%;
   border:none;
-  padding:18px;
   border-radius:16px;
+  padding:18px;
   background:linear-gradient(135deg,#2563eb,#1d4ed8);
   color:#fff;
   font-size:18px;
   font-weight:700;
 }
 
+/* LOCK SCREEN */
+.lock-screen{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#0f172a;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:99999;
+  padding:25px;
+}
+
+.lock-box{
+  max-width:420px;
+}
+
+.lock-box h1{
+  font-size:34px;
+  margin-bottom:14px;
+}
+
+.lock-box p{
+  line-height:1.8;
+  color:#cbd5e1;
+  font-size:16px;
+}
+
+.lock-time{
+  margin-top:18px;
+  background:rgba(255,255,255,0.08);
+  padding:14px;
+  border-radius:14px;
+  font-weight:700;
+}
+
 /* FOOTER */
 .footer{
   text-align:center;
-  font-size:13px;
+  padding:30px 10px 40px;
   color:#6b7280;
-  padding:28px 10px 40px;
+  font-size:13px;
 }
 
 /* MOBILE */
 @media(max-width:700px){
 
 .topbar{
-  text-align:center;
   justify-content:center;
+  text-align:center;
 }
 
-.live-strip{
+.status-bar{
   flex-direction:column;
   align-items:flex-start;
 }
 
-.progress-top{
+.access-top{
   flex-direction:column;
-  gap:6px;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- TOP -->
+<!-- ACCESS CONTROL SCREEN -->
+<div id="lockScreen" class="lock-screen" style="display:none;">
+
+  <div class="lock-box">
+
+    <h1 id="lockTitle">🔒 Training Access Closed</h1>
+
+    <p id="lockText">
+      Today's training access is currently unavailable.
+      Please join during active batch timing.
+    </p>
+
+    <div class="lock-time">
+      ⏰ Access Timing: 03:00 PM – 10:00 PM
+    </div>
+
+  </div>
+
+</div>
+
+<!-- TOPBAR -->
 <div class="topbar">
 
   <div class="brand">
@@ -282,28 +344,28 @@ body{
 
 </div>
 
-<!-- LIVE STRIP -->
-<div class="live-strip">
+<!-- STATUS -->
+<div class="status-bar">
 
-  <div class="live-left">
+  <div class="live-wrap">
     <div class="dot"></div>
-    <span>LIVE TRAINING ACCESS ACTIVE</span>
+    <span id="liveStatus">LIVE TRAINING ACCESS ACTIVE</span>
   </div>
 
-  <div class="viewer-box">
-    👁 <span id="viewerCount">126</span> Candidates Attending
+  <div class="viewer">
+    👁 <span id="viewerCount">128</span> Candidates Attending
   </div>
 
 </div>
 
 <div class="container">
 
-  <!-- PROGRESS -->
-  <div class="progress-card">
+  <!-- ACCESS -->
+  <div class="access-box">
 
-    <div class="progress-top">
-      <span>📘 Module 1 • Introduction & Orientation</span>
-      <span>33% Progress</span>
+    <div class="access-top">
+      <span><b>📘 Module 1 • Introduction & Orientation</b></span>
+      <span><b>33% Progress</b></span>
     </div>
 
     <div class="progress-bar">
@@ -333,17 +395,17 @@ body{
   <div class="stats">
 
     <div class="stat">
-      <div class="stat-title">Current Module</div>
+      <div class="stat-label">Current Module</div>
       <div class="stat-value">Module 1</div>
     </div>
 
     <div class="stat">
-      <div class="stat-title">Training Status</div>
+      <div class="stat-label">Training Status</div>
       <div class="stat-value">LIVE</div>
     </div>
 
     <div class="stat">
-      <div class="stat-title">Next Access</div>
+      <div class="stat-label">Next Module</div>
       <div class="stat-value">Locked 🔒</div>
     </div>
 
@@ -363,8 +425,8 @@ body{
     </ul>
 
     <div class="highlight">
-      🎯 Verification code will appear inside the training session <br><br>
-      📩 Submit the code to your mentor for next module access
+      🎯 Verification code will appear inside the session <br><br>
+      📩 Submit the code to your mentor to continue further
     </div>
 
   </div>
@@ -375,11 +437,11 @@ body{
     <h3>📈 Recent Activity</h3>
 
     <div class="activity-item">
-      ✅ Candidate access approved for Module 1
+      ✅ Batch access approved for selected candidates
     </div>
 
     <div class="activity-item">
-      ✅ Batch verification process active
+      ✅ Verification process currently active
     </div>
 
     <div class="activity-item">
@@ -397,30 +459,70 @@ body{
 
 <!-- FOOTER -->
 <div class="footer">
-  Secure Training Portal • Access Monitored • Batch Controlled
+  Secure Training Portal • Access Controlled • Batch Monitored
 </div>
 
 <script>
 
-/* REALISTIC VIEWER SYSTEM */
+/* =========================
+   ACCESS TIMING SYSTEM
+========================= */
+
+const now = new Date();
+const hour = now.getHours();
+
+const lockScreen = document.getElementById("lockScreen");
+const lockTitle = document.getElementById("lockTitle");
+const lockText = document.getElementById("lockText");
+
+/* BEFORE 3 PM */
+if(hour < 15){
+
+  lockScreen.style.display = "flex";
+
+  lockTitle.innerHTML = "⏳ Training Starts Soon";
+
+  lockText.innerHTML =
+  "Today's training batch will start at 03:00 PM.<br><br>Please rejoin during active training timing.";
+
+}
+
+/* AFTER 10 PM */
+if(hour >= 22){
+
+  lockScreen.style.display = "flex";
+
+  lockTitle.innerHTML = "🔒 Training Access Closed";
+
+  lockText.innerHTML =
+  "Today's batch timing has ended.<br><br>Please revisit during active training hours.";
+
+}
+
+/* =========================
+   REALISTIC VIEWER SYSTEM
+========================= */
 
 let base = localStorage.getItem("viewerBase");
 
 if(!base){
 
-  let hour = new Date().getHours();
+  if(hour >= 15 && hour < 18){
 
-  if(hour >= 6 && hour < 12){
-    base = Math.floor(Math.random()*25)+65;
-  }
-  else if(hour >= 12 && hour < 19){
-    base = Math.floor(Math.random()*40)+110;
-  }
-  else{
-    base = Math.floor(Math.random()*30)+55;
+    base = Math.floor(Math.random()*25)+70;
+
+  }else if(hour >= 18 && hour < 22){
+
+    base = Math.floor(Math.random()*45)+120;
+
+  }else{
+
+    base = Math.floor(Math.random()*20)+45;
+
   }
 
   localStorage.setItem("viewerBase", base);
+
 }
 
 base = parseInt(base);
@@ -437,7 +539,7 @@ function updateViewers(){
 
 updateViewers();
 
-setInterval(updateViewers, 15000);
+setInterval(updateViewers,15000);
 
 </script>
 
