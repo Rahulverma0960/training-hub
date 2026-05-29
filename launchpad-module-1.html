@@ -19,7 +19,7 @@ body{
   color:#111827;
 }
 
-/* TOP HEADER */
+/* HEADER */
 .topbar{
   background:linear-gradient(135deg,#0f172a,#1e293b);
   padding:18px 22px;
@@ -87,6 +87,14 @@ body{
   font-weight:700;
 }
 
+.countdown{
+  text-align:center;
+  margin-top:8px;
+  font-size:14px;
+  color:#6b7280;
+  font-weight:600;
+}
+
 /* MAIN */
 .container{
   max-width:1100px;
@@ -94,7 +102,7 @@ body{
   padding:22px;
 }
 
-/* ACCESS BOX */
+/* ACCESS */
 .access-box{
   background:#fff;
   border-radius:18px;
@@ -248,7 +256,7 @@ body{
   height:100%;
   background:#0f172a;
   color:#fff;
-  display:flex;
+  display:none;
   justify-content:center;
   align-items:center;
   text-align:center;
@@ -277,6 +285,13 @@ body{
   padding:14px;
   border-radius:14px;
   font-weight:700;
+}
+
+#startCountdown{
+  margin-top:14px;
+  font-size:22px;
+  font-weight:700;
+  color:#fff;
 }
 
 /* FOOTER */
@@ -311,27 +326,30 @@ body{
 
 <body>
 
-<!-- ACCESS CONTROL SCREEN -->
-<div id="lockScreen" class="lock-screen" style="display:none;">
+<!-- LOCK SCREEN -->
+<div id="lockScreen" class="lock-screen">
 
   <div class="lock-box">
 
-    <h1 id="lockTitle">🔒 Training Access Closed</h1>
+    <h1 id="lockTitle">⏳ Training Starts Soon</h1>
 
     <p id="lockText">
-      Today's training access is currently unavailable.
-      Please join during active batch timing.
+      Today's training batch has not started yet.
     </p>
 
     <div class="lock-time">
       ⏰ Access Timing: 03:00 PM – 10:00 PM
     </div>
 
+    <div id="startCountdown">
+      00:00:00
+    </div>
+
   </div>
 
 </div>
 
-<!-- TOPBAR -->
+<!-- HEADER -->
 <div class="topbar">
 
   <div class="brand">
@@ -356,6 +374,10 @@ body{
     👁 <span id="viewerCount">128</span> Candidates Attending
   </div>
 
+</div>
+
+<div class="countdown" id="topCountdown">
+  🔴 Session Live Now
 </div>
 
 <div class="container">
@@ -470,54 +492,92 @@ body{
 
 const now = new Date();
 const hour = now.getHours();
+const minutes = now.getMinutes();
 
 const lockScreen = document.getElementById("lockScreen");
-const lockTitle = document.getElementById("lockTitle");
-const lockText = document.getElementById("lockText");
+const topCountdown = document.getElementById("topCountdown");
+
+const startHour = 15;
+const endHour = 22;
 
 /* BEFORE 3 PM */
-if(hour < 15){
+if(hour < startHour){
 
   lockScreen.style.display = "flex";
 
-  lockTitle.innerHTML = "⏳ Training Starts Soon";
+  function updateStartCountdown(){
 
-  lockText.innerHTML =
-  "Today's training batch will start at 03:00 PM.<br><br>Please rejoin during active training timing.";
+    const now = new Date();
+
+    const target = new Date();
+
+    target.setHours(startHour,0,0,0);
+
+    const diff = target - now;
+
+    const h = Math.floor(diff / 1000 / 60 / 60);
+    const m = Math.floor((diff / 1000 / 60) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("startCountdown").innerHTML =
+      `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+
+  }
+
+  updateStartCountdown();
+
+  setInterval(updateStartCountdown,1000);
 
 }
 
 /* AFTER 10 PM */
-if(hour >= 22){
+if(hour >= endHour){
 
   lockScreen.style.display = "flex";
 
-  lockTitle.innerHTML = "🔒 Training Access Closed";
+  document.getElementById("lockTitle").innerHTML =
+    "🔒 Training Access Closed";
 
-  lockText.innerHTML =
-  "Today's batch timing has ended.<br><br>Please revisit during active training hours.";
+  document.getElementById("lockText").innerHTML =
+    "Today's batch timing has ended.<br><br>Please revisit during active training hours.";
+
+  document.getElementById("startCountdown").style.display = "none";
+
+}
+
+/* LIVE STATUS */
+if(hour >= startHour && hour < endHour){
+
+  topCountdown.innerHTML =
+    "🔴 Session Live Now • Batch Access Active";
 
 }
 
 /* =========================
-   REALISTIC VIEWER SYSTEM
+   VIEWER SYSTEM
 ========================= */
 
 let base = localStorage.getItem("viewerBase");
 
 if(!base){
 
+  /* 3 PM → 6 PM HIGH */
   if(hour >= 15 && hour < 18){
-
-    base = Math.floor(Math.random()*25)+70;
-
-  }else if(hour >= 18 && hour < 22){
 
     base = Math.floor(Math.random()*45)+120;
 
-  }else{
+  }
 
-    base = Math.floor(Math.random()*20)+45;
+  /* 6 PM → 10 PM LOW */
+  else if(hour >= 18 && hour < 22){
+
+    base = Math.floor(Math.random()*35)+55;
+
+  }
+
+  else{
+
+    base = Math.floor(Math.random()*20)+25;
 
   }
 
