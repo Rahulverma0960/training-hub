@@ -376,7 +376,7 @@ body.locked{
   </div>
 
   <div class="viewer">
-    👁 <span id="viewerCount">128</span> Participants Active
+    👁 <span id="viewerCount">--</span> Participants Active
   </div>
 
 </div>
@@ -428,7 +428,7 @@ body.locked{
 
     <div class="stat">
       <div class="stat-label">Training Status</div>
-      <div class="stat-value">LIVE</div>
+      <div class="stat-value" id="trainingStatus">Checking...</div>
     </div>
 
     <div class="stat">
@@ -464,15 +464,15 @@ body.locked{
     <h3>📈 Recent Activity</h3>
 
     <div class="activity-item">
-      ✅ Batch access approved for selected candidates
+      🟢 Batch Window Active
     </div>
 
     <div class="activity-item">
-      ✅ Verification process currently active
+      🟢 Verification Enabled
     </div>
 
     <div class="activity-item">
-      ✅ Module 2 access available after completion
+      🟢 Module 2 Locked Until Verification
     </div>
 
   </div>
@@ -554,6 +554,18 @@ if(hour >= endHour && accessGranted !== "yes"){
 if(hour >= startHour && hour < endHour){
   topCountdown.innerHTML = "🔴 Session Live Now • Batch Access Active";
 }
+
+
+if(document.getElementById("trainingStatus")){
+  if(hour < startHour){
+    document.getElementById("trainingStatus").innerText = "Scheduled";
+  }else if(hour >= startHour && hour < endHour){
+    document.getElementById("trainingStatus").innerText = "LIVE";
+  }else{
+    document.getElementById("trainingStatus").innerText = "Closed";
+  }
+}
+
 
 /* =========================
    VIEWER SYSTEM
