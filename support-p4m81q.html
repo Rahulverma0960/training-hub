@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doubt Session</title>
+<title>Clarification Session | Module 2</title>
 
 <style>
 
@@ -336,10 +336,10 @@ body.locked{
 
   <div class="lock-box">
 
-    <h1 id="lockTitle">⏳ Training Starts Soon</h1>
+    <h1 id="lockTitle">⏳ Clarification Session Starts Soon</h1>
 
     <p id="lockText">
-      Today's training batch has not started yet.
+      Today's Clarification Session has not started yet.<br><br>Please join during the active session window.
     </p>
 
     <div class="lock-time">
@@ -358,11 +358,11 @@ body.locked{
 <div class="topbar">
 
   <div class="brand">
-    💬 DOUBT SESSION
+    💬 CLARIFICATION SESSION
   </div>
 
   <div class="batch">
-    Batch Access • Module 2 of 3
+    Professional Development Program • Module 2 of 3
   </div>
 
 </div>
@@ -372,7 +372,7 @@ body.locked{
 
   <div class="live-wrap">
     <div class="dot"></div>
-    <span id="liveStatus">Live Support Session Active</span>
+    <span id="liveStatus">Clarification Session Active</span>
   </div>
 
   <div class="viewer">
@@ -391,7 +391,7 @@ body.locked{
   <div class="access-box">
 
     <div class="access-top">
-      <span><b>📘 Module 2 • Foundation & Doubt Resolution</b></span>
+      <span><b>📘 Module 2 • Clarification Session</b></span>
       <span><b>66% Progress</b></span>
     </div>
 
@@ -423,7 +423,7 @@ body.locked{
 
     <div class="stat">
       <div class="stat-label">Current Module</div>
-      <div class="stat-value">Module 2</div>
+      <div class="stat-value">Clarification Session</div>
     </div>
 
     <div class="stat">
@@ -433,7 +433,7 @@ body.locked{
 
     <div class="stat">
       <div class="stat-label">Next Module</div>
-      <div class="stat-value">Module 3 Locked 🔒</div>
+      <div class="stat-value">Execution Session 🔒</div>
     </div>
 
   </div>
@@ -444,11 +444,11 @@ body.locked{
     <h3>📌 Important Instructions</h3>
 
     <ul>
-      <li>This session is designed to clear your doubts from Module 1</li>
+      <li>This session is designed to strengthen your understanding from Module 1</li>
       <li>Do not refresh or leave during the session</li>
       <li>Stay till the end to understand the complete process</li>
       <li>Submit completion confirmation after watching</li>
-      <li>Module 3 access is unlocked only after completion</li>
+      <li>Execution Session access is unlocked only after completion</li>
     </ul>
 
     <div class="highlight">
@@ -460,32 +460,32 @@ body.locked{
   <!-- ACTIVITY -->
   <div class="activity">
 
-    <h3>📈 Recent Activity</h3>
+    <h3>📊 Session Status</h3>
 
     <div class="activity-item">
-      🟢 Module 1 Verification Completed
+      🟢 Foundation Session Completed
     </div>
 
     <div class="activity-item">
-      🟢 Live Support Session Active
+      🟢 Clarification Session Active
     </div>
 
     <div class="activity-item">
-      🟢 Module 3 Locked Until Completion
+      🟢 Execution Session Locked Until Completion
     </div>
 
   </div>
 
   <!-- BUTTON -->
   <button class="btn">
-    Module 3 Locked 🔒
+    Execution Session Locked 🔒
   </button>
 
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-  Secure Training Portal • Access Controlled • Batch Monitored
+  Professional Training Hub • Access Controlled • Batch Monitored
 </div>
 
 <script>
@@ -559,7 +559,7 @@ if(document.getElementById("trainingStatus")){
   if(hour < startHour){
     document.getElementById("trainingStatus").innerText = "Scheduled";
   }else if(hour >= startHour && hour < endHour){
-    document.getElementById("trainingStatus").innerText = "LIVE";
+    document.getElementById("trainingStatus").innerText = "ACTIVE";
   }else{
     document.getElementById("trainingStatus").innerText = "Closed";
   }
