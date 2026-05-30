@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Launchpad Day 1</title>
+<title>Foundation Session | Module 1</title>
 
 <style>
 
@@ -336,10 +336,11 @@ body.locked{
 
   <div class="lock-box">
 
-    <h1 id="lockTitle">⏳ Training Starts Soon</h1>
+    <h1 id="lockTitle">⏳ Foundation Session Starts Soon</h1>
 
     <p id="lockText">
-      Today's training batch has not started yet.
+      Today's Foundation Session has not started yet.<br><br>
+Please join during the active session window.
     </p>
 
     <div class="lock-time">
@@ -358,11 +359,11 @@ body.locked{
 <div class="topbar">
 
   <div class="brand">
-    🚀 LAUNCHPAD DAY-1
+    🏛 FOUNDATION SESSION
   </div>
 
   <div class="batch">
-    Batch Access • Module 1 of 3
+    Professional Development Program • Module 1 of 3
   </div>
 
 </div>
@@ -372,7 +373,7 @@ body.locked{
 
   <div class="live-wrap">
     <div class="dot"></div>
-    <span id="liveStatus">Training Session Active</span>
+    <span id="liveStatus">Foundation Session Active</span>
   </div>
 
   <div class="viewer">
@@ -391,7 +392,7 @@ body.locked{
   <div class="access-box">
 
     <div class="access-top">
-      <span><b>📘 Module 1 • Introduction & Orientation</b></span>
+      <span><b>📘 Module 1 • Foundation Session</b></span>
       <span><b>33% Progress</b></span>
     </div>
 
@@ -423,7 +424,7 @@ body.locked{
 
     <div class="stat">
       <div class="stat-label">Current Module</div>
-      <div class="stat-value">Module 1</div>
+      <div class="stat-value">Foundation Session</div>
     </div>
 
     <div class="stat">
@@ -433,7 +434,7 @@ body.locked{
 
     <div class="stat">
       <div class="stat-label">Next Module</div>
-      <div class="stat-value">Locked 🔒</div>
+      <div class="stat-value">Clarification Session 🔒</div>
     </div>
 
   </div>
@@ -461,10 +462,10 @@ body.locked{
   <!-- ACTIVITY -->
   <div class="activity">
 
-    <h3>📈 Recent Activity</h3>
+    <h3>📊 Session Status</h3>
 
     <div class="activity-item">
-      🟢 Batch Window Active
+      🟢 Foundation Session Active
     </div>
 
     <div class="activity-item">
@@ -472,21 +473,21 @@ body.locked{
     </div>
 
     <div class="activity-item">
-      🟢 Module 2 Locked Until Verification
+      🟢 Clarification Session Locked Until Verification
     </div>
 
   </div>
 
   <!-- BUTTON -->
   <button class="btn">
-    Next Module Locked 🔒
+    Clarification Session Locked 🔒
   </button>
 
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-  Secure Training Portal • Access Controlled • Batch Monitored
+  Professional Training Hub • Access Controlled • Batch Monitored
 </div>
 
 <script>
@@ -560,7 +561,7 @@ if(document.getElementById("trainingStatus")){
   if(hour < startHour){
     document.getElementById("trainingStatus").innerText = "Scheduled";
   }else if(hour >= startHour && hour < endHour){
-    document.getElementById("trainingStatus").innerText = "LIVE";
+    document.getElementById("trainingStatus").innerText = "ACTIVE";
   }else{
     document.getElementById("trainingStatus").innerText = "Closed";
   }
