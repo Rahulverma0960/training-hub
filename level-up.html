@@ -216,13 +216,7 @@ body {
     <div class="video-container">
 
       <!-- ✅ UPDATED NEW BUNNY VIDEO -->
-      <iframe 
-      src="https://player.mediadelivery.net/embed/671638/87d0728f-759b-4e04-9930-38d982b85282?autoplay=false&loop=false&muted=false&preload=true"
-      loading="lazy"
-      style="border:0;position:absolute;top:0;height:100%;width:100%;"
-      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-      allowfullscreen="true">
-      </iframe>
+      <div id="videoContainer"></div>
 
     </div>
   </div>
@@ -299,6 +293,15 @@ let timer = setInterval(() => {
 function closePopup(){
   document.getElementById("popup").style.display = "none";
 }
+
+fetch("https://script.google.com/macros/s/AKfycbyBGzC3nQkOp6eTtBqHU0bTW6tx9-BBeaqLslDdfunccXXanSaAkebcU-cJMNzp6us-Cg/exec")
+.then(r => r.json())
+.then(data => {
+  document.getElementById("videoContainer").innerHTML = data.levelup;
+})
+.catch(console.error);
+
+
 </script>
 
 </body>
