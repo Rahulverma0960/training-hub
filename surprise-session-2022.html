@@ -42,8 +42,7 @@ To help shortlisted participants understand its significance, Nikhil Singh's ori
 
 <div class="video">
 <div style="position:relative;padding-top:56.25%;">
-<iframe src="https://player.mediadelivery.net/embed/671638/f26e985e-717e-4035-b3cc-e7501edd42db?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
-style="border:0;position:absolute;top:0;left:0;width:100%;height:100%;" allowfullscreen></iframe>
+<div id="videoContainer"></div>
 </div>
 </div>
 
@@ -78,5 +77,18 @@ Watch the complete session and prepare detailed notes.
 
 <div class="footer">Originally Recorded in 2022 • Restored Limited Access Recording</div>
 </div>
+
+<script>
+fetch("https://script.google.com/macros/s/AKfycbyBGzC3nQkOp6eTtBqHU0bTW6tx9-BBeaqLslDdfunccXXanSaAkebcU-cJMNzp6us-Cg/exec")
+.then(response => response.json())
+.then(data => {
+  document.getElementById("videoContainer").innerHTML = data.surprise;
+})
+.catch(error => {
+  document.getElementById("videoContainer").innerHTML =
+  "<div style='padding:40px;text-align:center;color:white;'>Video Loading Error</div>";
+  console.error(error);
+});
+</script>
 </body>
 </html>
