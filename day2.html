@@ -136,18 +136,7 @@ body {
 </div>
 
 <div class="video-card">
-<div class="video-container">
-
-<!-- ✅ UPDATED NEW BUNNY VIDEO -->
-<iframe 
-src="https://player.mediadelivery.net/embed/671638/1837560e-f3a7-4f36-b3a0-6c475c3a32dc?autoplay=false&loop=false&muted=false&preload=true"
-loading="lazy"
-style="border:0;position:absolute;top:0;height:100%;width:100%;"
-allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
-allowfullscreen>
-</iframe>
-
-</div>
+<div id="videoContainer"></div>
 </div>
 
 <div class="info">
@@ -178,5 +167,16 @@ allowfullscreen>
 
 </div>
 
+
+<script>
+fetch("https://script.google.com/macros/s/AKfycbyBGzC3nQkOp6eTtBqHU0bTW6tx9-BBeaqLslDdfunccXXanSaAkebcU-cJMNzp6us-Cg/exec")
+.then(r => r.json())
+.then(data => {
+  document.getElementById("videoContainer").innerHTML = data.day3;
+})
+.catch(err => {
+  console.error(err);
+});
+</script>
 </body>
 </html>
