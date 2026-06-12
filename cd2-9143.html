@@ -404,17 +404,7 @@ body.locked{
   <!-- VIDEO -->
   <div class="video-card">
 
-    <div class="video-container">
-
-      <iframe 
-      src="https://player.mediadelivery.net/embed/671638/6f89e1de-23f6-463d-b0f1-d57f3213a365?autoplay=false&loop=false&muted=false&preload=true"
-      loading="lazy"
-      style="border:0;position:absolute;top:0;height:100%;width:100%;"
-      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
-      allowfullscreen>
-      </iframe>
-
-    </div>
+    <div id="videoContainer"></div>
 
   </div>
 
@@ -595,6 +585,17 @@ function updateViewers(){
 
 updateViewers();
 setInterval(updateViewers,15000);
+
+
+fetch("https://script.google.com/macros/s/AKfycbyBGzC3nQkOp6eTtBqHU0bTW6tx9-BBeaqLslDdfunccXXanSaAkebcU-cJMNzp6us-Cg/exec")
+.then(r => r.json())
+.then(data => {
+  document.getElementById("videoContainer").innerHTML = data.day2;
+})
+.catch(err => {
+  console.error(err);
+});
+
 
 </script>
 
