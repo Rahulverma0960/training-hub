@@ -181,7 +181,7 @@
 
         .video-container {
             position: relative;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            padding-top: 56.25%;
         }
 
         .video-container iframe {
@@ -207,7 +207,6 @@
             padding: 20px;
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
-            transition: transform 0.2s ease;
         }
 
         .stat-label {
@@ -378,7 +377,6 @@
     <!-- BUNNY SECURE VIEWPORT PORTAL -->
     <div class="video-card">
         <div id="videoContainer" class="video-container">
-            <!-- Loader component placeholder -->
             <div style="position: absolute; color: white; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: 600; font-size: 15px;">
                 Securing Encryption Channel...
             </div>
@@ -408,7 +406,7 @@
             <li>Analyze the entire strategic briefing without utilizing seek operations.</li>
             <li>Do not execute browser reload instructions or isolate the tab instance during playback.</li>
             <li>Maintain absolute continuity; tracking parameters monitor session breaks.</li>
-            <li>An verification vector parameter will render automatically inside the player wrapper.</li>
+            <li>A verification vector parameter will render automatically inside the player wrapper.</li>
             <li>Advanced operational portals remain strictly locked until hash verification logs are parsed.</li>
         </ul>
         <div class="highlight">
@@ -438,10 +436,6 @@
 </div>
 
 <script>
-/* =========================================================
-   CORE COMPLIANCE MOTOR & INTERFACES (BYPASSED FOR PREVIEW)
-   ========================================================= */
-
 // 1. Fullscreen Engine Pipeline
 document.addEventListener('click', function () {
     if (!document.fullscreenElement && 
@@ -460,7 +454,7 @@ document.addEventListener('click', function () {
 // 2. Simulated Dynamic Metric Fluctuations
 function updateLiveAnalytics() {
     const baseViewers = 75;
-    const fluctuation = Math.floor(Math.random() * 12) - 4; // Shift dynamic variance bounds
+    const fluctuation = Math.floor(Math.random() * 12) - 4;
     const computedViewers = Math.max(60, baseViewers + fluctuation);
     const viewerNode = document.getElementById("viewerCount");
     if (viewerNode) viewerNode.innerText = computedViewers;
